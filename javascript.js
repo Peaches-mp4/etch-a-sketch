@@ -3,7 +3,8 @@
 
 let container = document.getElementById('container');
 let clearButton = document.getElementById('clear');
-let numOfDivs = 16*16; 
+let numOfDivs = 16; 
+createGrid();
 
 //popup asking for the size of the grid
 clearButton.addEventListener('click', popupFunction);
@@ -14,16 +15,28 @@ function popupFunction() {
     numOfDivs = prompt('Please choose a lower number');
    }
    console.log(numOfDivs)
+   removeGrid();
+}
+
+//for loop to remove grid
+
+function removeGrid() {
+    for (let i = 0; i < numOfDivs*numOfDivs; i++) {container.remove(document.getElementsByClassName('divSquare'));}
 }
 
 //for loop to create squares, add event listeners
 
-for (let i = 0; i < numOfDivs; i++) {
+function createGrid() {
+    for (let i = 0; i < numOfDivs*numOfDivs; i++) {
     let square = document.createElement('div');
     square.classList.add('divSquare');
     container.appendChild(square);
     // square.addEventListener('mouseover', colorFunction);
+    }
+
+
 }
+
 
 //function to color squares
 
