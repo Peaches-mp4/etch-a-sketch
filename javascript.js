@@ -1,6 +1,6 @@
 
 //initial declarations
-
+//let body = document.getElementsByTagName('body');
 let container = document.getElementById('container');
 let clearButton = document.getElementById('clear');
 let numOfDivs = 16; 
@@ -15,25 +15,21 @@ function popupFunction() {
     numOfDivs = prompt('Please choose a lower number');
    }
    console.log(numOfDivs)
-   removeGrid();
+   container.innerHTML = '';
+   createGrid();
 }
 
-//for loop to remove grid
-
-function removeGrid() {
-    for (let i = 0; i < numOfDivs*numOfDivs; i++) {container.remove(document.getElementsByClassName('divSquare'));}
-}
-
-//for loop to create squares, add event listeners
+//function to create grid, add event listeners
 
 function createGrid() {
     for (let i = 0; i < numOfDivs*numOfDivs; i++) {
     let square = document.createElement('div');
     square.classList.add('divSquare');
     container.appendChild(square);
-    // square.addEventListener('mouseover', colorFunction);
-    }
+    square.addEventListener('mouseover', colorFunction);
+        console.log('grid created')
 
+    }
 
 }
 
