@@ -3,25 +3,21 @@ body {
 }
 
 #container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0;
-    min-height: 300px;
-    max-height: 300px;
-    min-width: 300px;
-    max-width: 300px;
+    display: inline-grid;
+    height: 500px;
+    width: 500px;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: auto;
+    box-sizing: border-box;
 }
 
 .divSquare {
-    border: 1px solid black; 
+    border: 1px solid red; 
     background-color: pink; 
-    flex: 1 1 auto;
-    padding-bottom: 5%; 
-    width: 5%
-}
+    box-sizing: border-box;
+} 
 
 .colored-black {
     background-color: black;
 }
 
-/* pokusavam da nadjem nacin kako da mi ne overflowuju ovi kvadratici dole i menjaju velicinu when they do; ideja je da imam kvadrat kao parent, i da se kvadratici unutra prilagode velicini koja je potrebna; sam parent ne mora da flexuje; */
