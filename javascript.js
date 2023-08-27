@@ -29,12 +29,36 @@ function createGrid() {
     container.style.gridTemplateColumns = `repeat(${numOfDivs}, 1fr)`;
     container.appendChild(square);
     square.addEventListener('mouseover', colorFunction);
+    // square.addEventListener('mouseover', opacityFunction);
     }
 }
 
+//random rgb color generator
+function randomRGB() {
+    let r = Math.floor(Math.random() * 255)+1;
+    let g = Math.floor(Math.random() * 255)+1;
+    let b = Math.floor(Math.random() * 255)+1;
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
+
 //function to color squares
 
-    function colorFunction(e) {
-    e.target.classList.add('colored-black');
-    }
+function colorFunction(e) {
+// e.target.classList.add('colored-black');
+e.target.style.backgroundColor = randomRGB();
+// e.target.classList.add('colored-increment');
 
+}
+
+
+
+//incremental coloring 
+
+
+
+function opacityFunction(e) {
+    let opacity = e.target.style.opacity;
+    opacity += 0.1;
+    e.target.style.opacity = opacity;
+}
