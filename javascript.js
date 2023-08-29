@@ -1,11 +1,9 @@
 
 //initial declarations
-let r = document.querySelector(':root');
 let container = document.getElementById('container');
 let clearButton = document.getElementById('clear');
 let numOfDivs = 16; 
 createGrid();
-
 
 //popup asking for the size of the grid
 
@@ -31,7 +29,7 @@ function createGrid() {
     container.style.gridTemplateColumns = `repeat(${numOfDivs}, 1fr)`;
     container.appendChild(square);
     // square.addEventListener('mouseover', colorFunction);
-    square.addEventListener('mouseover', opacityFunction);
+    square.addEventListener('mouseover', shadingFunction);
     }
 }
 
@@ -44,7 +42,6 @@ function randomRGB() {
     return `rgb(${r}, ${g}, ${b})`;
 }
 
-
 //function to color squares
 
 function colorFunction(e) {
@@ -52,38 +49,13 @@ function colorFunction(e) {
 // e.target.style.backgroundColor = randomRGB();
 }
 
-// opacity function for incremental coloring
+// shading function for incremental coloring
 
-
- function opacityFunction(e) {
-e.target.classList.add('shaded');
-let comps = getComputedStyle(e.target);
-let currentBrightness = comps.getPropertyValue('filter').slice(11, -1);
-//alert(Number(currentBrightness));
-let newBrightness = (Number(currentBrightness)) - 0.1; 
-//alert(newBrightness)
-e.target.style.filter = `brightness(${newBrightness})`
-//alert(comps.getPropertyValue('filter'));
-
+function shadingFunction(e) {
+    e.target.classList.add('shaded');
+    let comps = getComputedStyle(e.target);
+    let currentBrightness = comps.getPropertyValue('filter').slice(11, -1);
+    let newBrightness = (Number(currentBrightness)) - 0.1; 
+    e.target.style.filter = `brightness(${newBrightness})`
 }
 
-
-
-
-// function to get alpha value
-
-function getAlpha() {
-    var rs = getComputedStyle(r);
-    let alpha = rs.getPropertyValue('--alpha');
-   // alert(alpha);
-}
-
- getAlpha();
-// setAlpha();
-
-
-// function to set alpha value 
-
-function setAlpha() {
-    r.style.setProperty('--alpha', (getPropertyValue('--alpha') + 0.1));
-}
