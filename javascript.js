@@ -1,5 +1,6 @@
 
 //initial declarations
+
 let container = document.getElementById('container');
 let clearButton = document.getElementById('clear');
 let numOfDivs = 16; 
@@ -7,6 +8,7 @@ createGrid();
 
 
 //popup asking for the size of the grid
+
 clearButton.addEventListener('click', popupFunction);
 
 function popupFunction() {
@@ -28,12 +30,13 @@ function createGrid() {
     square.classList.add('divSquare');
     container.style.gridTemplateColumns = `repeat(${numOfDivs}, 1fr)`;
     container.appendChild(square);
-    square.addEventListener('mouseover', colorFunction);
-    // square.addEventListener('mouseover', opacityFunction);
+    // square.addEventListener('mouseover', colorFunction);
+    square.addEventListener('mouseover', opacityFunction);
     }
 }
 
 //random rgb color generator
+
 function randomRGB() {
     let r = Math.floor(Math.random() * 255)+1;
     let g = Math.floor(Math.random() * 255)+1;
@@ -46,19 +49,25 @@ function randomRGB() {
 
 function colorFunction(e) {
 // e.target.classList.add('colored-black');
-e.target.style.backgroundColor = randomRGB();
-// e.target.classList.add('colored-increment');
-
+// e.target.style.backgroundColor = randomRGB();
 }
 
+// opacity function for incremental coloring
 
+// let n = 0;
+ function opacityFunction(e) {
+e.target.classList.add('shaded');
 
-//incremental coloring 
-
-
-
-function opacityFunction(e) {
-    let opacity = e.target.style.opacity;
-    opacity += 0.1;
-    e.target.style.opacity = opacity;
+//         if (n < 1) {
+//             n += 0.1;
+//         } else if (n > 1){
+//             n -= 0.1;
+//         }
+//         let o = e.target.style.opacity;
+//         e.target.style.opacity = `${o + 0.1}`
+//         // e.target.style.backgroundColor = `rgb(220, 220, 200, ${n})`
+//         // alert(n)
+        
 }
+
+//mislim da sam nasla potencijalno resenje na stackoverflow - moram da napravim css var za alpha channel i onda nekako da nadjem nacin da je targetujem u js

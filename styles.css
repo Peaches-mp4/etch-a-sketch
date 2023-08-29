@@ -1,5 +1,9 @@
+:root {
+    --alpha: 0.0;
+}
+
 body {
-    background-color: rgb(65, 64, 64);
+    background-color: white;
 }
 
 #container {
@@ -12,12 +16,17 @@ body {
 }
 
 .divSquare {
-    border: 1px solid red; 
-    background-color: pink; 
+    border: 1px solid black; 
+    background-color: white; 
     box-sizing: border-box;
+    
 } 
 
 .colored-black {
-    background-color: black;
+    background-color: rgb(0, 0, 0);
+    
 }
 
+.shaded {
+    background-color: rgba(0, 0, 0, var(--alpha));
+}
