@@ -1,5 +1,5 @@
 :root {
-    --alpha: 0.0;
+    --alpha: 0.6;
 }
 
 body {
@@ -28,5 +28,8 @@ body {
 }
 
 .shaded {
-    background-color: rgba(0, 0, 0, var(--alpha));
+    /* background-color: rgba(0, 0, 0, var(--alpha)); */
+    background-color: rgb(255, 255, 255);
+    filter: brightness(1)
+
 }

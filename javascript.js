@@ -1,6 +1,6 @@
 
 //initial declarations
-
+let r = document.querySelector(':root');
 let container = document.getElementById('container');
 let clearButton = document.getElementById('clear');
 let numOfDivs = 16; 
@@ -54,20 +54,36 @@ function colorFunction(e) {
 
 // opacity function for incremental coloring
 
-// let n = 0;
+
  function opacityFunction(e) {
 e.target.classList.add('shaded');
+let comps = getComputedStyle(e.target);
+let currentBrightness = comps.getPropertyValue('filter').slice(11, -1);
+//alert(Number(currentBrightness));
+let newBrightness = (Number(currentBrightness)) - 0.1; 
+//alert(newBrightness)
+e.target.style.filter = `brightness(${newBrightness})`
+//alert(comps.getPropertyValue('filter'));
 
-//         if (n < 1) {
-//             n += 0.1;
-//         } else if (n > 1){
-//             n -= 0.1;
-//         }
-//         let o = e.target.style.opacity;
-//         e.target.style.opacity = `${o + 0.1}`
-//         // e.target.style.backgroundColor = `rgb(220, 220, 200, ${n})`
-//         // alert(n)
-        
 }
 
-//mislim da sam nasla potencijalno resenje na stackoverflow - moram da napravim css var za alpha channel i onda nekako da nadjem nacin da je targetujem u js
+
+
+
+// function to get alpha value
+
+function getAlpha() {
+    var rs = getComputedStyle(r);
+    let alpha = rs.getPropertyValue('--alpha');
+   // alert(alpha);
+}
+
+ getAlpha();
+// setAlpha();
+
+
+// function to set alpha value 
+
+function setAlpha() {
+    r.style.setProperty('--alpha', (getPropertyValue('--alpha') + 0.1));
+}
