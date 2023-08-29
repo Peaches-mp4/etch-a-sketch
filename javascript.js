@@ -15,7 +15,6 @@ function popupFunction() {
    if(numOfDivs > 100) {
     numOfDivs = prompt('Please choose a lower number');}
 
-   console.log(numOfDivs)
    container.innerHTML = '';
    createGrid();
 }
@@ -28,8 +27,8 @@ function createGrid() {
     square.classList.add('divSquare');
     container.style.gridTemplateColumns = `repeat(${numOfDivs}, 1fr)`;
     container.appendChild(square);
-    // square.addEventListener('mouseover', colorFunction);
-    square.addEventListener('mouseover', shadingFunction);
+    square.addEventListener('mouseover', colorFunction);
+    //square.addEventListener('mouseover', shadingFunction);
     }
 }
 
@@ -46,7 +45,7 @@ function randomRGB() {
 
 function colorFunction(e) {
 // e.target.classList.add('colored-black');
-// e.target.style.backgroundColor = randomRGB();
+e.target.style.backgroundColor = randomRGB();
 }
 
 // shading function for incremental coloring
@@ -59,3 +58,6 @@ function shadingFunction(e) {
     e.target.style.filter = `brightness(${newBrightness})`
 }
 
+//create buttons to switch between modes
+//optional - color picker
+//style the page
