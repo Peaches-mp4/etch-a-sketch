@@ -5,10 +5,7 @@ let clearButton = document.getElementById('clear');
 let rainbowButton = document.getElementById('rainbow');
 let shadingButton = document.getElementById('shade');
 let bwButton = document.getElementById('black-and-white');
-
-
 let numOfDivs = 16; 
-
 
 //function to create grid
 
@@ -18,14 +15,10 @@ function createGrid() {
     square.classList.add('divSquare');
     container.style.gridTemplateColumns = `repeat(${numOfDivs}, 1fr)`;
     container.appendChild(square);
-   // square.addEventListener('mouseover', colorFunction);
-    //square.addEventListener('mouseover', shadingFunction);
-       }
+    }
 } 
 createGrid();
 let squares = document.querySelectorAll('.divSquare');
-
-console.log(squares)
 
 //event listeners
 
@@ -36,20 +29,32 @@ bwButton.addEventListener('click', bwListener);
 
 function rainbowListener() {
     squares.forEach(square => square.addEventListener('mouseover', rainbowFunction));
+
+    //remove other listeners
+    squares.forEach(square => square.removeEventListener('mouseover', bwFunction));
+    squares.forEach(square => square.removeEventListener('mouseover', shadingFunction));
 }
 
 function shadingListener() {
     squares.forEach(square => square.addEventListener('mouseover', shadingFunction));
+
+    //remove other listeners
+    
+    squares.forEach(square => square.removeEventListener('mouseover', bwFunction));
+    squares.forEach(square => square.removeEventListener('mouseover', rainbowFunction));
+
 }
 
 function bwListener() {
     squares.forEach(square => square.addEventListener('mouseover', bwFunction));
+
+    //remove other listeners
+
+    squares.forEach(square => square.removeEventListener('mouseover', rainbowFunction));
+    squares.forEach(square => square.removeEventListener('mouseover', shadingFunction));
 }
 
-
-
 //function asking for the size of the grid
-
 
 function popupFunction() {
    numOfDivs = prompt('How many squares per side do you want your sketchpad to have?', 16);
@@ -59,6 +64,7 @@ function popupFunction() {
 
    container.innerHTML = '';
    createGrid();
+   squares = document.querySelectorAll('.divSquare')
 }
 
 
@@ -74,10 +80,11 @@ function randomRGB() {
 //functions to color squares
 
 function bwFunction(e) {
-    e.target.classList.add('colored-black');
-    // console.log('oye')
+    e.target.style.backgroundColor = 'black';
 }
+
 function rainbowFunction(e) {
+    console.log('oye')
     e.target.style.backgroundColor = randomRGB();
 }
 
