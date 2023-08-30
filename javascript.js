@@ -2,12 +2,54 @@
 //initial declarations
 let container = document.getElementById('container');
 let clearButton = document.getElementById('clear');
-let numOfDivs = 16; 
-createGrid();
+let rainbowButton = document.getElementById('rainbow');
+let shadingButton = document.getElementById('shade');
+let bwButton = document.getElementById('black-and-white');
 
-//popup asking for the size of the grid
+
+let numOfDivs = 16; 
+
+
+//function to create grid
+
+function createGrid() {
+    for (let i = 0; i < numOfDivs*numOfDivs; i++) {
+    let square = document.createElement('div');
+    square.classList.add('divSquare');
+    container.style.gridTemplateColumns = `repeat(${numOfDivs}, 1fr)`;
+    container.appendChild(square);
+   // square.addEventListener('mouseover', colorFunction);
+    //square.addEventListener('mouseover', shadingFunction);
+       }
+} 
+createGrid();
+let squares = document.querySelectorAll('.divSquare');
+
+console.log(squares)
+
+//event listeners
 
 clearButton.addEventListener('click', popupFunction);
+rainbowButton.addEventListener('click', rainbowListener);
+shadingButton.addEventListener('click', shadingListener);
+bwButton.addEventListener('click', bwListener);
+
+function rainbowListener() {
+    squares.forEach(square => square.addEventListener('mouseover', rainbowFunction));
+}
+
+function shadingListener() {
+    squares.forEach(square => square.addEventListener('mouseover', shadingFunction));
+}
+
+function bwListener() {
+    squares.forEach(square => square.addEventListener('mouseover', bwFunction));
+}
+
+
+
+//function asking for the size of the grid
+
 
 function popupFunction() {
    numOfDivs = prompt('How many squares per side do you want your sketchpad to have?', 16);
@@ -19,18 +61,6 @@ function popupFunction() {
    createGrid();
 }
 
-//function to create grid, add event listeners
-
-function createGrid() {
-    for (let i = 0; i < numOfDivs*numOfDivs; i++) {
-    let square = document.createElement('div');
-    square.classList.add('divSquare');
-    container.style.gridTemplateColumns = `repeat(${numOfDivs}, 1fr)`;
-    container.appendChild(square);
-    square.addEventListener('mouseover', colorFunction);
-    //square.addEventListener('mouseover', shadingFunction);
-    }
-}
 
 //random rgb color generator
 
@@ -41,14 +71,15 @@ function randomRGB() {
     return `rgb(${r}, ${g}, ${b})`;
 }
 
-//function to color squares
+//functions to color squares
 
-function colorFunction(e) {
-// e.target.classList.add('colored-black');
-e.target.style.backgroundColor = randomRGB();
+function bwFunction(e) {
+    e.target.classList.add('colored-black');
+    // console.log('oye')
 }
-
-// shading function for incremental coloring
+function rainbowFunction(e) {
+    e.target.style.backgroundColor = randomRGB();
+}
 
 function shadingFunction(e) {
     e.target.classList.add('shaded');
