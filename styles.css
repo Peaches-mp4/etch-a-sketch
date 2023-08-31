@@ -4,6 +4,13 @@
 
 body {
     background-color: white;
+    text-align: center;
+}
+
+button {
+    padding: 5px;
+    background-color: yellow;
+    font-weight: bold;
 }
 
 #container {
@@ -13,6 +20,8 @@ body {
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: auto;
     box-sizing: border-box;
+    margin: 5vw;
+    border: 3px solid black;
 }
 
 .divSquare {

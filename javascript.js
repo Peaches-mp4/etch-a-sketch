@@ -63,6 +63,7 @@ function eraseListener() {
 
     squares.forEach(square => square.removeEventListener('mouseover', rainbowFunction));
     squares.forEach(square => square.removeEventListener('mouseover', shadingFunction));
+    squares.forEach(square => square.removeEventListener('mouseover', bwFunction));
 
 }
 
@@ -113,5 +114,5 @@ function eraseFunction(e) {
     e.target.style.filter = 'brightness(1)';
 }
     
-//add an erase button (stigla sam do pisanja eraseListener function)
+
 //style the page
