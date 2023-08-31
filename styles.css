@@ -1,5 +1,6 @@
 :root {
     --outline: #00000044;
+    --shadow: rgba(0, 0, 0, 0.651);
 }
 
 body {
@@ -18,9 +19,18 @@ h1 {
 
 button {
     padding: 10px 15px;
-    background-color: yellow;
-    font-weight: bold;
+    margin: 0 7px;
+    background-color: rgb(106, 226, 220);
+    font-weight: 700;
     font-size: 14px;
+    transition: all .07s ease;
+    border: 1px solid var(--outline);
+    border-radius: 3px;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 1rem var(--shadow);
 }
 
 #container {
@@ -31,7 +41,9 @@ button {
     grid-template-rows: auto;
     box-sizing: border-box;
     margin: 5vw;
-    border: 3px solid black;
+    /* border: 10px solid var(--outline); */
+    box-shadow: 0 0 3rem rgba(0, 0, 0, 0.521);
+    border-radius: 5px;
 }
 
 .divSquare {
@@ -39,7 +51,7 @@ button {
     background-color: white; 
     box-sizing: border-box;
     filter: brightness(1);
-
+    
 } 
 
 .shaded {
