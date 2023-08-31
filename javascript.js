@@ -27,7 +27,7 @@ resetButton.addEventListener('click', resetFunction);
 rainbowButton.addEventListener('click', rainbowListener);
 shadingButton.addEventListener('click', shadingListener);
 bwButton.addEventListener('click', bwListener);
-eraseButton.addEventListener('click', eraseListener)
+eraseButton.addEventListener('click', eraseListener);
 
 function rainbowListener() {
     squares.forEach(square => square.addEventListener('mouseover', rainbowFunction));
@@ -35,6 +35,7 @@ function rainbowListener() {
     //remove other listeners
     squares.forEach(square => square.removeEventListener('mouseover', bwFunction));
     squares.forEach(square => square.removeEventListener('mouseover', shadingFunction));
+    squares.forEach(square => square.removeEventListener('mouseover', eraseFunction));
 }
 
 function shadingListener() {
@@ -44,6 +45,7 @@ function shadingListener() {
     
     squares.forEach(square => square.removeEventListener('mouseover', bwFunction));
     squares.forEach(square => square.removeEventListener('mouseover', rainbowFunction));
+    squares.forEach(square => square.removeEventListener('mouseover', eraseFunction));
 
 }
 
@@ -54,6 +56,8 @@ function bwListener() {
 
     squares.forEach(square => square.removeEventListener('mouseover', rainbowFunction));
     squares.forEach(square => square.removeEventListener('mouseover', shadingFunction));
+    squares.forEach(square => square.removeEventListener('mouseover', eraseFunction));
+    
 }
 
 function eraseListener() {
@@ -97,7 +101,6 @@ function bwFunction(e) {
 }
 
 function rainbowFunction(e) {
-    console.log('oye')
     e.target.style.backgroundColor = randomRGB();
 }
 
@@ -106,12 +109,12 @@ function shadingFunction(e) {
     let comps = getComputedStyle(e.target);
     let currentBrightness = comps.getPropertyValue('filter').slice(11, -1);
     let newBrightness = (Number(currentBrightness)) - 0.1; 
-    e.target.style.filter = `brightness(${newBrightness})`
+    e.target.style.filter = `brightness(${newBrightness})`;
 }
 
 function eraseFunction(e) {
     e.target.style.backgroundColor = 'white';
-    e.target.style.filter = 'brightness(1)';
+    e.target.style.filter = 'brightness(100%)';
 }
     
 

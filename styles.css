@@ -28,6 +28,8 @@ button {
     border: 1px solid black; 
     background-color: white; 
     box-sizing: border-box;
+    filter: brightness(1);
+
 } 
 
 .shaded {
