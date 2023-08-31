@@ -1,10 +1,11 @@
 
 //initial declarations
 let container = document.getElementById('container');
-let clearButton = document.getElementById('clear');
+let resetButton = document.getElementById('reset');
 let rainbowButton = document.getElementById('rainbow');
 let shadingButton = document.getElementById('shade');
 let bwButton = document.getElementById('black-and-white');
+let eraseButton = document.getElementById('erase');
 let numOfDivs = 16; 
 
 //function to create grid
@@ -22,10 +23,11 @@ let squares = document.querySelectorAll('.divSquare');
 
 //event listeners
 
-clearButton.addEventListener('click', popupFunction);
+resetButton.addEventListener('click', resetFunction);
 rainbowButton.addEventListener('click', rainbowListener);
 shadingButton.addEventListener('click', shadingListener);
 bwButton.addEventListener('click', bwListener);
+eraseButton.addEventListener('click', eraseListener)
 
 function rainbowListener() {
     squares.forEach(square => square.addEventListener('mouseover', rainbowFunction));
@@ -54,9 +56,19 @@ function bwListener() {
     squares.forEach(square => square.removeEventListener('mouseover', shadingFunction));
 }
 
+function eraseListener() {
+    squares.forEach(square => square.addEventListener('mouseover', eraseFunction));
+
+    //remove other listeners
+
+    squares.forEach(square => square.removeEventListener('mouseover', rainbowFunction));
+    squares.forEach(square => square.removeEventListener('mouseover', shadingFunction));
+
+}
+
 //function asking for the size of the grid
 
-function popupFunction() {
+function resetFunction() {
    numOfDivs = prompt('How many squares per side do you want your sketchpad to have?', 16);
 
    if(numOfDivs > 100) {
@@ -96,6 +108,10 @@ function shadingFunction(e) {
     e.target.style.filter = `brightness(${newBrightness})`
 }
 
-//create buttons to switch between modes
-//optional - color picker
+function eraseFunction(e) {
+    e.target.style.backgroundColor = 'white';
+    e.target.style.filter = 'brightness(1)';
+}
+    
+//add an erase button (stigla sam do pisanja eraseListener function)
 //style the page
