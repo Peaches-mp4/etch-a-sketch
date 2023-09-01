@@ -6,6 +6,7 @@ let rainbowButton = document.getElementById('rainbow');
 let shadingButton = document.getElementById('shade');
 let bwButton = document.getElementById('black-and-white');
 let eraseButton = document.getElementById('erase');
+let buttons = document.querySelectorAll('button');
 let numOfDivs = 16; 
 
 //function to create grid
@@ -18,10 +19,14 @@ function createGrid() {
     container.appendChild(square);
     }
 } 
+
+//create grid, select squares
 createGrid();
 let squares = document.querySelectorAll('.divSquare');
 
 //event listeners
+
+buttons.forEach(button => button.addEventListener('mouseover', playClick));
 
 resetButton.addEventListener('click', resetFunction);
 rainbowButton.addEventListener('click', rainbowListener);
@@ -116,6 +121,15 @@ function eraseFunction(e) {
     e.target.style.backgroundColor = 'white';
     e.target.style.filter = 'brightness(100%)';
 }
+
+//function to play audio
+
+function playClick() {
+    let audio = document.getElementById('can-pop');
+    audio.currentTime = 0;
+    audio.play();
+}
     
 
-//style the page
+//Add a wave animation on reset
+//sound-effects, background music?

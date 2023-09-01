@@ -13,6 +13,8 @@ body {
 
 h1 {
     color: white;
+    font-family: 'Comfortaa', cursive;
+    min-width: 550px;
     font-size: 50px;
     text-shadow: -2px -2px 0 var(--outline), 2px -2px 0 var(--outline), -6px 6px 0 #00000071, 2px 2px 0 var(--outline);
 }
@@ -20,17 +22,22 @@ h1 {
 button {
     padding: 10px 15px;
     margin: 0 7px;
-    background-color: rgb(106, 226, 220);
+    background-color: #71eaff;
     font-weight: 700;
     font-size: 14px;
     transition: all .07s ease;
     border: 1px solid var(--outline);
     border-radius: 3px;
+    font-family: 'Comfortaa', cursive;
 }
 
 button:hover {
     transform: scale(1.1);
     box-shadow: 0 0 1rem var(--shadow);
+}
+
+#button-container {
+    min-width: 550px;
 }
 
 #container {
@@ -40,7 +47,7 @@ button:hover {
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: auto;
     box-sizing: border-box;
-    margin: 5vw;
+    margin:  3vw 5vw 5vw 5vw;
     /* border: 10px solid var(--outline); */
     box-shadow: 0 0 3rem rgba(0, 0, 0, 0.521);
     border-radius: 5px;
@@ -58,3 +65,5 @@ button:hover {
     background-color: rgb(255, 255, 255);
     filter: brightness(1);
 }
+
+
