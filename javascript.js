@@ -26,6 +26,8 @@ let squares = document.querySelectorAll('.divSquare');
 
 //event listeners
 
+window.addEventListener('load', playBeach);
+
 buttons.forEach(button => button.addEventListener('mouseover', playClick));
 
 resetButton.addEventListener('click', resetFunction);
@@ -130,7 +132,6 @@ function playClick() {
     audio.volume = 0.7;
     audio.play();
 }
-window.addEventListener('load', playBeach);
 
 function playBeach() {
     let audio = document.getElementById(
@@ -146,6 +147,6 @@ function playBeach() {
 }
     
 
+
 //is there some interesting animation I could use on reset?
-//copy the codepen animation button and try to reproduce it in a separate file first
-//add background music?
+

@@ -19,19 +19,19 @@ h1 {
     text-shadow: -2px -2px 0 var(--outline), 2px -2px 0 var(--outline), -6px 6px 0 #00000071, 2px 2px 0 var(--outline);
 }
 
-button {
+.btn {
     padding: 10px 15px;
     margin: 0 7px;
     background-color: #71eaff;
     font-weight: 700;
     font-size: 14px;
     transition: all .07s ease;
-    border: 1px solid var(--outline);
+    /* border: 1px solid var(--outline); */
     border-radius: 3px;
     font-family: 'Comfortaa', cursive;
 }
 
-button:hover {
+.btn:hover {
     transform: scale(1.1);
     box-shadow: 0 0 1rem var(--shadow);
 }
@@ -66,4 +66,70 @@ button:hover {
     filter: brightness(1);
 }
 
+/* interpolated */
 
+body {
+ background-color: #cfd8dc;
+ font-weight: 400;
+}
+
+.middle {
+ position: relative;
+ display: flex;
+ height: 80%;
+ align-items: center;
+ justify-content: center;
+}
+
+a.btn {
+ 
+ text-decoration: none;
+ color: #000000;
+ position: relative;
+ background: #5ba5c7;
+ border-radius: 3px;
+ /* padding: 8px 20px;
+ margin: 0; */
+ letter-spacing: 1px;
+ overflow: hidden;
+ transition: .3s all ease-in-out;
+ box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.3);
+}
+
+a.btn .wave {
+ opacity: 1;
+ position: absolute;
+ top: 0;
+ left: 50%;
+ background: #9ad6f1;
+ width: 500px;
+ height: 500px;
+ margin-left: -250px;
+ margin-top: -480px;
+ transform-origin: 50% 49%;
+ border-radius: 43%;
+ box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.3);
+ animation: drift 8000ms infinite linear;
+}
+
+a.btn .text {
+ position: relative;
+ z-index: 2;
+}
+
+a.btn:hover {
+ box-shadow: 0 0px 10px 2px rgba(0, 0, 0, 0.1), 0 6px 10px 5px rgba(0, 0, 0, 0.12), 0 8px 5px -5px rgba(0, 0, 0, 0.3);
+}
+
+
+@keyframes drift {
+ from {
+  transform: rotate(0deg);
+ }
+ from {
+  transform: rotate(360deg);
+ }
+}
+
+
+   
