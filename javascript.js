@@ -125,11 +125,27 @@ function eraseFunction(e) {
 //function to play audio
 
 function playClick() {
-    let audio = document.getElementById('can-pop');
+    let audio = document.getElementById('btn-click');
     audio.currentTime = 0;
+    audio.volume = 0.7;
     audio.play();
+}
+window.addEventListener('load', playBeach);
+
+function playBeach() {
+    let audio = document.getElementById(
+    'beach');
+    audio.currentTime = 0;
+    audio.volume = 0.4;
+    audio.play();
+    audio.addEventListener('ended', function() {
+        this.currentTime = 0;
+        audio.volume = 0.4;
+        this.play();
+    }, false);
 }
     
 
-//Add a wave animation on reset
-//sound-effects, background music?
+//is there some interesting animation I could use on reset?
+//copy the codepen animation button and try to reproduce it in a separate file first
+//add background music?
