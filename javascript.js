@@ -6,7 +6,7 @@ let rainbowButton = document.getElementById('rainbow');
 let shadingButton = document.getElementById('shade');
 let bwButton = document.getElementById('black-and-white');
 let eraseButton = document.getElementById('erase');
-let buttons = document.querySelectorAll('button');
+let buttons = document.querySelectorAll('.btn');
 let numOfDivs = 16; 
 
 //function to create grid
