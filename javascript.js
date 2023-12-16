@@ -129,7 +129,7 @@ function eraseFunction(e) {
 function playClick() {
     let audio = document.getElementById('btn-click');
     audio.currentTime = 0;
-    audio.volume = 0.7;
+    audio.volume = 1;
     audio.play();
 }
 
@@ -137,11 +137,11 @@ function playBeach() {
     let audio = document.getElementById(
     'beach');
     audio.currentTime = 0;
-    audio.volume = 0.4;
+    audio.volume = 0.6;
     audio.play();
     audio.addEventListener('ended', function() {
         this.currentTime = 0;
-        audio.volume = 0.4;
+        audio.volume = 0.6;
         this.play();
     }, false);
 }

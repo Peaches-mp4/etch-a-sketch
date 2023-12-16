@@ -25,6 +25,7 @@ h1 {
     height: 80%;
     align-items: center;
     justify-content: center;
+    margin: -0.5rem 0;
 }
 
 .btn {
@@ -70,18 +71,18 @@ a.btn .text {
     z-index: 2;
 }
 
-#button-container {
+/* #button-container {
     min-width: 550px;
-}
+} */
 
 #container {
     display: inline-grid;
-    height: 500px;
-    width: 500px;
+    height: 420px;
+    width: 420px;
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: auto;
     box-sizing: border-box;
-    margin:  3vw 5vw 5vw 5vw;
+    margin: 3vw 5vw 5vw 5vw;
     box-shadow: 0 0 3rem rgba(0, 0, 0, 0.521);
     border-radius: 5px;
 }
